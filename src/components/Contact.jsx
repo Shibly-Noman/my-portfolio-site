@@ -25,12 +25,11 @@ export default function Contact() {
           {/* Left: invite */}
           <div>
             <SectionHeading label="Contact">
-              Let’s make something <span className="text-primary">worth reading.</span>
+              Let’s build something <span className="text-primary">reliable.</span>
             </SectionHeading>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-md text-lg text-muted-foreground">
-                Have a brief, a beat, or a backlog of content that needs an owner? I’d love to hear
-                about it.
+                Have a system to scale, a product to ship, or a tough engineering problem? I’d love to hear about it.
               </p>
             </Reveal>
 
@@ -44,6 +43,18 @@ export default function Contact() {
                   <span>
                     <span className="block text-xs font-semibold uppercase tracking-wide text-muted-foreground">Email</span>
                     <span className="font-semibold">{profile.email}</span>
+                  </span>
+                </a>
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-4 rounded-3xl border border-border bg-background p-5 transition-colors hover:border-primary"
+                >
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary-muted text-primary">GH</span>
+                  <span>
+                    <span className="block text-xs font-semibold uppercase tracking-wide text-muted-foreground">GitHub</span>
+                    <span className="font-semibold">{profile.githubLabel}</span>
                   </span>
                 </a>
                 <a

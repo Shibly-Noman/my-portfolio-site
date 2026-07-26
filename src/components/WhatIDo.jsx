@@ -8,12 +8,12 @@ export default function WhatIDo() {
     <section className="py-24 md:py-32">
       <div className="container-content">
         <SectionHeading label="What I do">
-          The full content <span className="text-primary">lifecycle</span>, owned end to end.
+          End-to-end engineering, <span className="text-primary">from design to deploy.</span>
         </SectionHeading>
         <Reveal delay={0.1}>
           <p className="mt-5 max-w-2xl text-lg text-muted-foreground">
-            From the first interview to the last performance report — one person who can take a
-            blank page all the way to measurable results.
+            From architecture decisions to production monitoring — one engineer who can take a
+            system from blank whiteboard to reliable scale.
           </p>
         </Reveal>
 

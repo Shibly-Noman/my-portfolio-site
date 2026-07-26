@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
 import ReadingProgress from './components/ReadingProgress'
 import Hero from './components/Hero'
+import Work from './components/Work'
 import WhatIDo from './components/WhatIDo'
 import Stories from './components/Stories'
 import Contact from './components/Contact'
@@ -14,6 +15,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <Work />
         <WhatIDo />
         <Stories />
         <Contact />

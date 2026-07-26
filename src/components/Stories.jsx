@@ -131,11 +131,11 @@ export default function Stories() {
             {/* Left: persistent frame + live progress */}
             <div className="col-span-5 flex h-screen flex-col justify-center">
               <SectionHeading label="An interactive archive">
-                <span className="text-primary">Stories</span> behind the work
+                <span className="text-primary">Experience</span> behind the code
               </SectionHeading>
               <p className="mt-5 max-w-md text-lg text-muted-foreground">
-                Scroll through the career as chapters — from the newsroom desk to owning the full
-                content lifecycle.
+                Scroll through the career as chapters — from media applications to AI-powered
+                products and high-scale SaaS.
               </p>
 
               <div className="mt-10 flex items-baseline gap-3">
@@ -200,10 +200,10 @@ export default function Stories() {
       {/* ───────── Mobile: simple stacked list ───────── */}
       <div className="px-6 py-24 md:hidden">
         <SectionHeading label="An interactive archive">
-          <span className="text-primary">Stories</span> behind the work
+          <span className="text-primary">Experience</span> behind the code
         </SectionHeading>
         <p className="mt-5 text-lg text-muted-foreground">
-          The career as chapters — from the newsroom desk to owning the full content lifecycle.
+          The career as chapters — from media applications to AI-powered products and high-scale SaaS.
         </p>
         <div className="mt-10 space-y-6">
           {chapters.map((ch) => (

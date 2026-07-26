@@ -9,6 +9,10 @@ const typeColor = {
   'Case Study': 'bg-success-muted text-success',
   News: 'bg-foreground/5 text-foreground',
   'Brand / PR': 'bg-primary-muted text-primary',
+  'Web App': 'bg-primary-muted text-primary',
+  SaaS: 'bg-success-muted text-success',
+  'AI / ML': 'bg-foreground/5 text-foreground',
+  Media: 'bg-primary-muted text-primary',
 }
 
 export default function Work() {
@@ -18,17 +22,15 @@ export default function Work() {
   return (
     <section id="work" className="bg-background-alt py-24 md:py-32">
       <div className="container-content">
-        {/* Identity intro */}
         <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16">
           <SectionHeading label="About">
-            Journalist’s rigor, <span className="text-primary">marketer’s</span> aim.
+            Full-stack engineer, <span className="text-primary">scalable systems.</span>
           </SectionHeading>
           <Reveal delay={0.1}>
             <p className="text-lg leading-relaxed text-muted-foreground">{profile.summary}</p>
           </Reveal>
         </div>
 
-        {/* Selected work */}
         <div className="mt-20 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <span className="pill mb-4 text-primary">
@@ -36,7 +38,7 @@ export default function Work() {
               Selected work
             </span>
             <h3 className="text-3xl font-extrabold leading-tight sm:text-4xl md:text-5xl">
-              Pieces that earned <span className="text-primary">their place.</span>
+              Systems that earned <span className="text-primary">their place.</span>
             </h3>
           </Reveal>
 
@@ -93,27 +95,28 @@ export default function Work() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Education */}
-        <div className="mt-20 border-t border-border pt-12">
-          <Reveal>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
-              Education
-            </h3>
-          </Reveal>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2">
-            {education.map((e, i) => (
-              <Reveal key={e.degree} delay={i * 0.08}>
-                <div className="border-l-2 border-primary pl-4">
-                  <p className="font-bold">{e.degree}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {e.field} · {e.detail}
-                  </p>
-                  <p className="text-sm font-semibold text-primary">{e.school}</p>
-                </div>
-              </Reveal>
-            ))}
+        {education.length > 0 && (
+          <div className="mt-20 border-t border-border pt-12">
+            <Reveal>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                Education
+              </h3>
+            </Reveal>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2">
+              {education.map((e, i) => (
+                <Reveal key={e.degree} delay={i * 0.08}>
+                  <div className="border-l-2 border-primary pl-4">
+                    <p className="font-bold">{e.degree}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {e.field} · {e.detail}
+                    </p>
+                    <p className="text-sm font-semibold text-primary">{e.school}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   )

@@ -1,228 +1,199 @@
-// Single source of truth for all site content.
-// Swap placeholder Work items + "Add date" markers with real values later.
-
 export const profile = {
-  name: 'Kamrun Nahar',
-  wordmark: { first: 'Kamrun', second: 'Nahar' },
-  badge: 'Content Specialist · Former Journalist',
-  tagline: 'Content Writer and Journalist',
-  // Rotating phrases for the hero headline keyword.
-  rotating: ['stories that move', 'copy that converts', 'news people trust'],
-  heroLead: 'I turn complex ideas into',
+  name: 'Shibly Mohammad Noman',
+  wordmark: { first: 'Shibly', second: 'Noman' },
+  badge: 'Full-Stack Software Engineer',
+  tagline: 'Software Engineer',
+  rotating: ['complex systems', 'scalable architecture', 'clean code'],
+  heroLead: 'I build systems that are',
   heroSub:
-    'Content writer with 5+ years across B2B digital marketing and news journalism — covering the full lifecycle from interview to performance. AI for speed, human judgment for quality.',
+    'Full-stack engineer with 5+ years of experience building complex systems from infrastructure up. Framework-agnostic mindset with a track record of improving application performance and accessibility across the entire stack.',
   summary:
-    'Content writer with 5+ years of experience spanning B2B digital marketing and news journalism. I specialize in turning defined content and branding strategy into clear, compelling work across blogs, case studies, news stories, and business communication. I cover the full content lifecycle — interviewing, writing, auditing, and tracking performance — using AI tools for speed and human judgment for quality.',
-  email: 'kn.sunjida@gmail.com',
-  phone: '+880 153 3362 768',
-  phoneHref: 'tel:+8801533362768',
-  linkedin: 'https://linkedin.com/in/kn-sunjida',
-  linkedinLabel: 'linkedin.com/in/kn-sunjida',
+    'Full-stack engineer with 5+ years of experience building complex systems from infrastructure up. Maintaining a framework-agnostic mindset, I have consistently improved application performance and enhanced user accessibility. My focus remains on engineering excellence and solving technical challenges across the entire stack.',
+  email: 'shibly.work@gmail.com',
+  phone: '+880 1307609911',
+  phoneHref: 'tel:+8801307609911',
+  linkedin: 'https://linkedin.com/in/shibly-mohammad',
+  linkedinLabel: 'linkedin.com/in/shibly-mohammad',
+  github: 'https://github.com/Shibly-Noman',
+  githubLabel: 'github.com/Shibly-Noman',
 }
 
 export const stats = [
-  { value: 5, suffix: '+', label: 'Years writing' },
-  { value: 150, suffix: '+', label: 'News pieces & case studies' },
-  { value: 38, suffix: '', label: 'Portfolios shipped' },
-  { value: 50, suffix: '+', label: 'Press releases & articles' },
+  { value: 5, suffix: '+', label: 'Years experience' },
+  { value: 3, suffix: '', label: 'Companies scaled' },
+  { value: 10, suffix: '+', label: 'Systems delivered' },
+  { value: 3, suffix: '', label: 'Major platforms built' },
 ]
 
 export const lifecycle = [
   {
     step: '01',
-    title: 'Research & Interview',
-    desc: 'SME and customer interviews, market and competitor research — finding the real story before a word is written.',
+    title: 'Architect & Design',
+    desc: 'Design system architecture, choose tech stacks, and model data flows that balance performance with maintainability.',
   },
   {
     step: '02',
-    title: 'Write & Edit',
-    desc: 'Blogs, landing pages, email, ebooks, case studies and customer stories — drafted, edited, and on-brand.',
+    title: 'Build & Integrate',
+    desc: 'Develop APIs, UIs, and backend services — integrating databases, queues, and third-party services into cohesive platforms.',
   },
   {
     step: '03',
-    title: 'Audit & Optimize',
-    desc: 'Auditing in-market content to keep positioning, messaging and quality current, with SEO baked in.',
+    title: 'Optimize & Scale',
+    desc: 'Profile bottlenecks, refactor hot paths, and tune infrastructure to handle high throughput without sacrificing reliability.',
   },
   {
     step: '04',
-    title: 'Track & Report',
-    desc: 'Performance tracking across engagement and organic traffic, with recommendations that compound.',
+    title: 'Deploy & Monitor',
+    desc: 'Ship with CI/CD pipelines, container orchestration, and observability — keeping systems healthy post-launch.',
   },
 ]
 
-// Work grid — placeholder pieces. Replace title/excerpt/link/source with real work.
-export const workTypes = ['All', 'Blog', 'Case Study', 'News', 'Brand / PR']
+export const workTypes = ['All', 'Web App', 'SaaS', 'AI / ML', 'Media']
 
 export const work = [
   {
-    type: 'Case Study',
-    title: 'From technical docs to a customer story that closed deals',
+    type: 'Media',
+    title: 'Shadhin Music — high-performance streaming platform',
     excerpt:
-      'Interviewed an SME and a customer to tie a thorny pain point to a clean solution narrative.',
-    source: 'Vivasoft',
+      'Built a streaming platform with recommendation engine, user event tracking, and SEO optimization for an extensive library of songs, videos, and podcasts.',
+    source: 'Gakk Media Limited',
     link: '#',
   },
   {
-    type: 'Blog',
-    title: 'The full content lifecycle, explained without the jargon',
+    type: 'AI / ML',
+    title: 'Eudora — AI-powered learning platform',
     excerpt:
-      'A pillar blog mapping interview → write → audit → track, written for busy marketing leads.',
-    source: 'Vivasoft',
+      'Developed an EdTech platform that tracks student mastery in real time, detects learning gaps, and delivers personalized, data-backed intervention recommendations.',
+    source: 'Personal Project',
     link: '#',
   },
   {
-    type: 'News',
-    title: 'On the beat: a feature across politics, society and culture',
+    type: 'SaaS',
+    title: 'Ask My Data — NL-to-SQL application',
     excerpt:
-      'Reported and written on deadline from primary sources, translated into a clear narrative.',
-    source: 'Suprobhat Bangladesh',
+      'Created a natural-language-to-SQL app using LangGraph that generates, validates, and executes database queries with multi-layer security safeguards and approval gates.',
+    source: 'Personal Project',
     link: '#',
   },
   {
-    type: 'Brand / PR',
-    title: '50+ press releases and an award-winning submission',
+    type: 'Web App',
+    title: 'Tracking Pixels — cookieless attribution system',
     excerpt:
-      'Managed award applications and PR that contributed to the Digital Bangladesh Award 2022.',
-    source: 'Riseup Labs',
+      'Engineered a cookieless event tracking and attribution system built for GDPR and CCPA compliance using anonymous session modeling and first-party data collection.',
+    source: 'Vivasoft Limited',
     link: '#',
   },
   {
-    type: 'Case Study',
-    title: 'One of 38 portfolios shipped end to end',
+    type: 'SaaS',
+    title: 'High-scale AdTech SaaS platform',
     excerpt:
-      'Research, copy, visuals and publishing — owned from blank page to live page.',
-    source: 'Riseup Labs',
+      'Developed and maintained high-scale AdTech SaaS with complex API architectures optimized for performance and reliability.',
+    source: 'Vivasoft Limited',
     link: '#',
   },
   {
-    type: 'News',
-    title: 'Editing the desk: headlines that earned the click honestly',
+    type: 'Web App',
+    title: 'Custom Vite-based framework',
     excerpt:
-      'Sub-edited and fact-checked reporter copy, optimized for readability and the web.',
-    source: 'CTGNews.com',
+      'Built a custom framework on top of Vite, improving build performance and scalability across distributed projects.',
+    source: 'Vivasoft Limited',
     link: '#',
   },
 ]
 
-// Stories = career as chapters (chronological journalism → B2B arc).
 export const chapters = [
   {
     n: 1,
-    kicker: 'The Desk',
-    company: 'CTGNews.com',
-    role: 'Sub Editor',
-    period: 'Oct 2020 – Aug 2021',
-    title: 'Learning the craft at the desk',
-    desc: 'Where precision became a habit — editing, fact-checking and headline-writing under a live publication’s standards.',
+    kicker: 'Media & Gaming',
+    company: 'Gakk Media Limited',
+    role: 'Software Engineer',
+    period: 'Jul 2021 – Oct 2022',
+    title: 'Building media and gaming applications',
+    desc: 'Early career focus on media delivery and SSR migration — improving SEO, reducing load times, and integrating global subscription systems.',
     points: [
-      'Edited and proofread news copy; wrote headlines optimized for readability and web.',
-      'Reviewed reporter submissions and fact-checked for accuracy and compliance.',
-      'Managed editorial workflow and kept voice and tone consistent across the publication.',
+      'Developed and delivered diverse media and gaming applications.',
+      'Migrated legacy architectures and implemented SSR to improve SEO and discoverability.',
+      'Reduced page load time, increased traffic, and built a global media player with anti-piracy measures.',
+      'Optimized media delivery and integrated Google Analytics with custom event tracking.',
+      'Integrated Direct Carrier Billing for local and international subscriptions.',
     ],
     metrics: [
-      { value: 'Daily', label: 'Editorial workflow' },
-      { value: 'Web', label: 'Readability & SEO' },
-      { value: '100%', label: 'Fact-checked' },
+      { value: 'Reduced', label: 'Load time' },
+      { value: 'SSR', label: 'SEO gain' },
+      { value: 'Global', label: 'Anti-piracy' },
     ],
   },
   {
     n: 2,
-    kicker: 'On the Beat',
-    company: 'Suprobhat Bangladesh',
-    role: 'Senior Reporter',
-    period: 'Sep 2021 – May 2022',
-    title: 'Reporting on deadline, from the source',
-    desc: 'The newsroom years — chasing primary sources and turning raw information into clear, engaging stories.',
+    kicker: 'High-Scale SaaS',
+    company: 'Vivasoft Limited',
+    role: 'Software Engineer L-II',
+    period: 'Nov 2022 – Dec 2025',
+    title: 'Scaling AdTech and data infrastructure',
+    desc: 'Deepened expertise in high-scale systems — from AdTech SaaS to custom frameworks, focusing on performance, reliability, and code quality.',
     points: [
-      'Researched, reported and wrote news stories and features across politics, society and culture.',
-      'Conducted primary-source interviews and translated them into clear narratives.',
-      'Met daily and weekly deadlines while holding accuracy and editorial standards.',
+      'Developed and maintained high-scale AdTech SaaS.',
+      'Worked with high-throughput data pipelines handling large datasets.',
+      'Optimized complex API architectures for performance and reliability.',
+      'Ensured code quality and technical consistency across distributed projects.',
+      'Built a custom framework on Vite, improving build performance and scalability.',
     ],
     metrics: [
-      { value: '3', label: 'Beats covered' },
-      { value: 'Daily', label: 'Deadlines met' },
-      { value: '1st', label: 'Primary sources' },
+      { value: 'High', label: 'Throughput' },
+      { value: 'Custom', label: 'Framework' },
+      { value: '3+ yrs', label: 'Stability' },
     ],
   },
   {
     n: 3,
-    kicker: 'Crossing Into B2B',
-    company: 'Riseup Labs',
-    role: 'Marketing Executive',
-    period: 'Add date – Add date',
-    title: 'From newsroom to brand storytelling',
-    desc: 'Carrying journalistic rigor into marketing — turning technical docs into audience-ready stories at scale.',
+    kicker: 'AI & LLM',
+    company: 'Ontik Technology',
+    role: 'Software Engineer, Consultant',
+    period: 'Mar 2026 – Jul 2026',
+    title: 'Engineering AI-powered products',
+    desc: 'Applied AI and LLM technologies to production SaaS products — advancing prototypes to funding stages with intelligent features.',
     points: [
-      'Authored 150+ news pieces and case studies from technical documentation.',
-      'Produced 38 portfolios end to end — research, copy, visuals and publishing.',
-      'Published 50+ press releases; named Best Employee and contributed to the Digital Bangladesh Award 2022.',
+      'Built NLQ feature for a finance SaaS MVP using LangChain and LangGraph, letting admins query legacy databases.',
+      'Advanced the product from prototype to funding stage.',
+      'Developed RAG-based MVP for RTM domain.',
     ],
     metrics: [
-      { value: '150+', label: 'Pieces authored' },
-      { value: '38', label: 'Portfolios shipped' },
-      { value: '50+', label: 'Press releases' },
-    ],
-  },
-  {
-    n: 4,
-    kicker: 'Full Lifecycle',
-    company: 'Vivasoft',
-    role: 'Digital Marketing Executive',
-    period: 'Add date – Present',
-    title: 'Owning content end to end',
-    desc: 'Where it all comes together — strategy, interviews, writing, audits and performance across every format.',
-    points: [
-      'Write and publish blogs, landing pages, email and case studies aligned to brand messaging.',
-      'Interview SMEs and customers to build case studies that tie pain points to solutions.',
-      'Audit in-market content, track performance, and run off-page & local SEO plus PR.',
-    ],
-    metrics: [
-      { value: 'Full', label: 'Content lifecycle' },
-      { value: 'SEO', label: 'Off-page & local' },
-      { value: 'GA4', label: 'Performance tracking' },
+      { value: 'NLQ', label: 'Feature' },
+      { value: 'RAG', label: 'MVP' },
+      { value: 'Funding', label: 'Stage' },
     ],
   },
 ]
 
 export const skillGroups = [
   {
-    title: 'Content & Writing',
-    items: ['Blogs', 'Landing pages', 'Email', 'Ebooks', 'Case studies', 'Customer stories', 'Editing', 'Audits'],
+    title: 'Core Languages',
+    items: ['TypeScript', 'Golang', 'Node.js', 'Python'],
   },
   {
-    title: 'Research & Storytelling',
-    items: ['SME & customer interviews', 'Market research', 'Competitor research', 'Narrative development'],
+    title: 'Frontend',
+    items: ['React', 'Next.js', 'Vue.js', 'Angular', 'Remix', 'React Native'],
   },
   {
-    title: 'Brand & Process',
-    items: ['Voice / tone / messaging', 'Style-guide adherence', 'Positioning', 'Compliance'],
+    title: 'Backend & APIs',
+    items: ['Django', 'Express', 'Microservices', 'REST / GraphQL'],
   },
   {
-    title: 'Performance',
-    items: ['Performance tracking', 'Engagement & traffic analysis', 'Optimization', 'SEO'],
+    title: 'Databases & Storage',
+    items: ['PostgreSQL', 'PgVector', 'MongoDB', 'Redis', 'Elasticsearch', 'TypeORM', 'Prisma'],
   },
   {
-    title: 'Collaboration & Tools',
-    items: ['Product Marketing / Design / Content', 'AI-assisted content (human QA)', 'WordPress', 'GA4'],
+    title: 'AI & LLM',
+    items: ['LangChain', 'LangGraph', 'RAG', 'NL-to-SQL'],
+  },
+  {
+    title: 'Infrastructure & DevOps',
+    items: ['Google Cloud Platform (GCP)', 'Firebase', 'Docker', 'Kubernetes', 'GitHub Actions', 'GitLab CI'],
   },
 ]
 
-export const education = [
-  {
-    degree: 'Master of Social Science (MSS)',
-    field: 'Communication & Journalism',
-    detail: 'Second Class · 2020',
-    school: 'University of Chittagong',
-  },
-  {
-    degree: 'Bachelor of Science (BSc)',
-    field: 'Communication & Journalism',
-    detail: 'Second Class · 2019',
-    school: 'University of Chittagong',
-  },
-]
+export const education = []
 
-// Styleguide = brand voice page.
 export const voicePrinciples = [
   {
     title: 'Clear',

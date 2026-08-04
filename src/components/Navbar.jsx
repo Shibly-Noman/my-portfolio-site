@@ -43,7 +43,7 @@ export default function Navbar() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <a href="#contact" className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-foreground sm:inline-flex">
+            <a href={`mailto:${profile.email}`} className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-foreground sm:inline-flex">
               Let’s Talk
             </a>
             <button

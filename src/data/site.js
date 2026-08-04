@@ -222,7 +222,6 @@ export const voiceExamples = [
 
 export const nav = [
   { label: 'Home', href: '#home' },
-  { label: 'Work', href: '#work' },
   { label: 'Stories', href: '#stories' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Work', href: '#work' },
 ]

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { education, profile, work, workTypes } from '../data/site'
-import SectionHeading from './ui/SectionHeading'
+import { education, work, workTypes } from '../data/site'
 import Reveal from './ui/Reveal'
 
 const typeColor = {
@@ -22,15 +21,6 @@ export default function Work() {
   return (
     <section id="work" className="bg-background-alt py-24 md:py-32">
       <div className="container-content">
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-16">
-          <SectionHeading label="About">
-            Full-stack engineer, <span className="text-primary">scalable systems.</span>
-          </SectionHeading>
-          <Reveal delay={0.1}>
-            <p className="text-lg leading-relaxed text-muted-foreground">{profile.summary}</p>
-          </Reveal>
-        </div>
-
         <div className="mt-20 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <Reveal>
             <span className="pill mb-4 text-primary">

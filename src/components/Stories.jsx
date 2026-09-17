@@ -4,7 +4,10 @@ import { chapters } from '../data/site'
 import SectionHeading from './ui/SectionHeading'
 import Reveal from './ui/Reveal'
 
-const N = chapters.length
+// Present the career from the latest work back to the starting point so the
+// story opens with AI/LLM work and resolves into the media foundations.
+const orderedChapters = [...chapters].reverse()
+const N = orderedChapters.length
 
 /** A single chapter card — shared by the pinned (desktop) and stacked (mobile) views. */
 function ChapterCard({ ch, active }) {
@@ -134,8 +137,8 @@ export default function Stories() {
                 <span className="text-primary">Experience</span> behind the code
               </SectionHeading>
               <p className="mt-5 max-w-md text-lg text-muted-foreground">
-                Scroll through the career as chapters — from media applications to AI-powered
-                products and high-scale SaaS.
+                Scroll through the career as chapters — from AI-powered products to high-scale
+                SaaS and the media foundations underneath it all.
               </p>
 
               <div className="mt-10 flex items-baseline gap-3">
@@ -147,7 +150,7 @@ export default function Stories() {
                 </span>
               </div>
               <p className="mt-3 text-sm font-bold uppercase tracking-wider text-muted-foreground">
-                {chapters[active].kicker} · {chapters[active].company}
+                {orderedChapters[active].kicker} · {orderedChapters[active].company}
               </p>
 
               {/* progress rail */}
@@ -159,7 +162,7 @@ export default function Stories() {
                     transition={{ type: 'spring', stiffness: 200, damping: 30 }}
                   />
                   <div className="absolute inset-0 flex items-center justify-between">
-                    {chapters.map((ch, i) => (
+                    {orderedChapters.map((ch, i) => (
                       <button
                         key={ch.n}
                         onClick={() => goTo(i)}
@@ -177,7 +180,7 @@ export default function Stories() {
             {/* Right: shifting card strip */}
             <div className="relative col-span-7 h-screen overflow-hidden">
               <motion.div style={{ y }}>
-                {chapters.map((ch, i) => (
+                {orderedChapters.map((ch, i) => (
                   <div key={ch.n} className="flex h-screen items-center justify-center">
                     <motion.div
                       className="w-full"
@@ -203,10 +206,10 @@ export default function Stories() {
           <span className="text-primary">Experience</span> behind the code
         </SectionHeading>
         <p className="mt-5 text-lg text-muted-foreground">
-          The career as chapters — from media applications to AI-powered products and high-scale SaaS.
+          The career as chapters — from AI-powered products to high-scale SaaS and the media foundations underneath it all.
         </p>
         <div className="mt-10 space-y-6">
-          {chapters.map((ch) => (
+          {orderedChapters.map((ch) => (
             <Reveal key={ch.n}>
               <ChapterCard ch={ch} active />
             </Reveal>

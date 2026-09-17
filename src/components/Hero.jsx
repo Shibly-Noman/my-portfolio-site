@@ -1,91 +1,97 @@
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { profile, stats, education } from '../data/site'
-import RotatingWord from './ui/RotatingWord'
-import MagneticButton from './ui/MagneticButton'
-import Counter from './ui/Counter'
 
 export default function Hero() {
+  const cardRef = useRef(null)
+  const [showHoli, setShowHoli] = useState(false)
+
+  const handlePointerMove = (event) => {
+    const card = cardRef.current
+    if (!card) return
+    const rect = card.getBoundingClientRect()
+    const x = (event.clientX - rect.left) / rect.width - 0.5
+    const y = (event.clientY - rect.top) / rect.height - 0.5
+    card.style.setProperty('--tilt-x', `${y * -1.4}deg`)
+    card.style.setProperty('--tilt-y', `${x * 1.4}deg`)
+  }
+
+  const resetTilt = () => {
+    const card = cardRef.current
+    if (!card) return
+    card.style.setProperty('--tilt-x', '0deg')
+    card.style.setProperty('--tilt-y', '0deg')
+  }
+
+  const showHoliOnHover = (event) => {
+    if (event.pointerType === 'mouse') setShowHoli(true)
+  }
+
+  const hideHoliOnLeave = (event) => {
+    if (event.pointerType === 'mouse') setShowHoli(false)
+  }
+
   return (
-    <section id="home" className="relative overflow-hidden pt-36 md:pt-44">
-      {/* soft warm glows */}
-      <div className="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 top-40 h-80 w-80 rounded-full bg-primary/10 blur-3xl" />
+    <section id="home" className="hero-stage relative overflow-hidden pt-24 md:pt-28" aria-labelledby="hero-title">
+      <div className="hero-haze hero-haze-one" />
+      <div className="hero-haze hero-haze-two" />
 
       <div className="container-content relative">
-        <motion.span
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="pill text-primary"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-          {profile.badge}
-        </motion.span>
-
-        <h1 className="mt-7 max-w-4xl text-[2rem] font-extrabold leading-[1.05] sm:text-5xl sm:leading-[1.02] md:text-6xl lg:text-7xl xl:text-[5.25rem]">
-          <motion.span
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.05 }}
-            className="block"
-          >
-            {profile.heroLead}
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-2 block"
-          >
-            <RotatingWord words={profile.rotating} />
-          </motion.span>
-        </h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-12 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
-        >
-          {profile.heroSub}
-        </motion.p>
-
-        {/* Education */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          ref={cardRef}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-10 flex flex-wrap gap-3"
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          onPointerMove={handlePointerMove}
+          onPointerLeave={resetTilt}
+          className="hero-reference-card"
         >
-          {education.map((e) => (
-            <div
-              key={e.degree}
-              className="flex items-center gap-2.5 rounded-full border border-border bg-card px-4 py-2 text-sm"
-            >
-              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-              <span className="font-semibold text-foreground">{e.field}</span>
-              <span className="text-muted-foreground">·</span>
-              <span className="font-bold text-primary">{e.degree.match(/\(([^)]+)\)/)?.[1]}</span>
-            </div>
-          ))}
-        </motion.div>
+          <div className="hero-scan-grid" aria-hidden="true" />
+          <div className="hero-corner hero-corner-top" aria-hidden="true" />
+          <div className="hero-corner hero-corner-bottom" aria-hidden="true" />
 
-        {/* Real stats */}
-        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {stats.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 + i * 0.08 }}
-            >
-              <div className="font-display text-4xl font-extrabold text-primary md:text-5xl">
-                <Counter value={s.value} suffix={s.suffix} />
-              </div>
-              <div className="mt-1 text-sm font-medium text-muted-foreground">{s.label}</div>
-            </motion.div>
-          ))}
-        </div>
+          <div className="hero-identity" aria-label="Professional focus">
+            <span className="hero-identity-index">01 / IDENTITY</span>
+            <span>FULL-STACK ENGINEER</span>
+            <span>AI · SAAS · MEDIA</span>
+          </div>
+
+          <p id="hero-title" className="sr-only">Shibly Mohammad Noman, full-stack software engineer</p>
+
+          <div className="hero-wordmark" aria-hidden="true">
+            <span className="hero-wordmark-outline">SHIBLY</span>
+            <span className="hero-wordmark-solid">NOMAN</span>
+          </div>
+
+          <button
+            type="button"
+            className={`hero-portrait-wrap${showHoli ? ' is-holi' : ''}`}
+            onPointerEnter={showHoliOnHover}
+            onPointerLeave={hideHoliOnLeave}
+            onClick={() => setShowHoli((visible) => !visible)}
+            aria-pressed={showHoli}
+            aria-label={showHoli ? 'Return to monochrome portrait' : 'Reveal Holi colors'}
+          >
+            <img
+              src="/images/shibly-hero-monochrome-cutout.png"
+              alt="Shibly Mohammad Noman"
+              className="hero-portrait hero-portrait-monochrome"
+            />
+            <img
+              src="/images/shibly-hero-holi.png"
+              alt=""
+              aria-hidden="true"
+              className="hero-portrait hero-portrait-holi"
+            />
+            <span className="hero-powder-bloom" aria-hidden="true" />
+            <span className="hero-portrait-hint" aria-hidden="true">Colour / on</span>
+          </button>
+
+          <div className="hero-caption" aria-hidden="true">
+            <span>Builder of resilient digital systems</span>
+            <span className="hero-caption-rule" />
+            <span>SELECTED WORK / 2026</span>
+          </div>
+        </motion.div>
       </div>
     </section>
   )

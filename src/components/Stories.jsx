@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, useMotionValue, useTransform } from 'framer-motion'
+import { AnimatePresence, motion, useMotionValue, useTransform } from 'framer-motion'
 import { chapters } from '../data/site'
 import SectionHeading from './ui/SectionHeading'
 import Reveal from './ui/Reveal'
@@ -7,57 +7,98 @@ import Reveal from './ui/Reveal'
 // Present the career from the latest work back to the starting point so the
 // story opens with AI/LLM work and resolves into the media foundations.
 const orderedChapters = [...chapters].reverse()
-const N = orderedChapters.length
+// A chapter gets one scroll step for each image it contains. Those extra steps
+// only swap the photo in the fixed card — they never create duplicate cards.
+const storySteps = orderedChapters.flatMap((chapter) => {
+  const photoCount = chapter.photos?.length ?? 1
+  return Array.from({ length: photoCount }, (_, photoIndex) => ({ chapter, photoIndex }))
+})
+const STORY_STEP_COUNT = storySteps.length
+const fallbackPhoto = '/images/shibly-hero-monochrome-cutout.png'
 
 /** A single chapter card — shared by the pinned (desktop) and stacked (mobile) views. */
-function ChapterCard({ ch, active }) {
+function ChapterCard({ ch, active, photoIndex = 0 }) {
+  const photoSlides = ch.photos?.length
+    ? ch.photos
+    : [{ src: ch.photo, alt: '', position: ch.photoPosition }]
+  const currentPhoto = photoSlides[Math.min(photoIndex, photoSlides.length - 1)]
+  const isFallbackPhoto = !currentPhoto?.src
+
   return (
     <article
-      className={`card relative flex w-full max-w-xl flex-col overflow-hidden p-7 transition-colors md:p-9 ${
+      className={`card relative w-full max-w-xl overflow-hidden transition-colors ${
         active ? 'border-primary shadow-lg' : 'border-border'
       }`}
     >
-      {/* ghost chapter number */}
-      <span className="pointer-events-none absolute right-4 top-1 font-display text-[7rem] font-extrabold leading-none text-primary/5">
-        {String(ch.n).padStart(2, '0')}
-      </span>
-
-      <div className="relative flex items-center justify-between">
-        <span className="pill text-primary">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-          Chapter {ch.n}
-        </span>
-        <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-          {ch.kicker}
-        </span>
+      <div className="relative h-56 overflow-hidden bg-muted md:h-64">
+        <AnimatePresence initial={false} mode="sync">
+          <motion.img
+            key={currentPhoto?.src || fallbackPhoto}
+            src={currentPhoto?.src || fallbackPhoto}
+            alt={currentPhoto?.alt || ''}
+            initial={photoSlides.length > 1 ? { opacity: 0, x: '-105%' } : false}
+            animate={{ opacity: 1, x: 0 }}
+            exit={photoSlides.length > 1 ? { opacity: 0, x: '105%' } : undefined}
+            transition={{ duration: 0.48, ease: 'easeOut' }}
+            className={`absolute inset-0 h-full w-full ${
+              isFallbackPhoto ? 'object-contain object-bottom' : 'object-cover'
+            }`}
+            style={currentPhoto?.position ? { objectPosition: currentPhoto.position } : undefined}
+          />
+        </AnimatePresence>
+        <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
+        <div className="absolute inset-x-5 bottom-4 flex items-end justify-between gap-4 text-white">
+          <span className="text-xs font-bold uppercase tracking-[0.16em]">{ch.kicker}</span>
+          <span className="font-display text-5xl font-extrabold leading-none text-white/90">
+            {String(ch.n).padStart(2, '0')}
+          </span>
+        </div>
       </div>
 
-      <h3 className="relative mt-6 text-2xl font-extrabold md:text-3xl">{ch.title}</h3>
-      <p className="relative mt-1 font-semibold text-primary">{ch.company}</p>
-      <p className="relative text-sm font-medium text-muted-foreground">
-        {ch.role} · {ch.period}
-      </p>
+      <div className="p-7 md:p-9">
+        <h3 className="text-2xl font-extrabold md:text-3xl">{ch.title}</h3>
+        <p className="mt-1 font-semibold text-primary">{ch.company}</p>
+        <p className="text-sm font-medium text-muted-foreground">
+          {ch.role} · {ch.period}
+        </p>
 
-      <p className="relative mt-4 text-[15px] leading-relaxed text-muted-foreground">{ch.desc}</p>
+        <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{ch.desc}</p>
 
-      <ul className="relative mt-5 space-y-2">
-        {ch.points.map((p) => (
-          <li key={p} className="flex gap-2.5 text-sm leading-relaxed">
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-            <span>{p}</span>
-          </li>
-        ))}
-      </ul>
-
-      <div className="relative mt-6 grid grid-cols-3 gap-2 pt-1">
-        {ch.metrics.map((m) => (
-          <div key={m.label} className="rounded-2xl bg-success-muted px-3 py-3 text-center">
-            <div className="font-display text-lg font-extrabold text-success">{m.value}</div>
-            <div className="mt-0.5 text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
-              {m.label}
+        {ch.projects?.length > 0 && (
+          <section className="mt-7 border-t border-border pt-5" aria-label="Projects">
+            <div className="flex items-baseline justify-between gap-4">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">
+                Projects
+              </p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+                {ch.projects.length} {ch.projects.length === 1 ? 'project' : 'projects'}
+              </p>
             </div>
-          </div>
-        ))}
+            <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
+              {ch.projects.map((project) => (
+                <article
+                  key={project.name}
+                  className="overflow-hidden rounded-xl border border-border bg-background"
+                >
+                  <div className="flex h-20 items-center justify-center bg-white p-3">
+                    <img
+                      src={project.logo}
+                      alt={`${project.name} logo`}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
+                  <div className="border-t border-border px-3 py-2.5">
+                    <p className="truncate text-sm font-bold">{project.name}</p>
+                    <p className="mt-0.5 text-[11px] font-medium uppercase tracking-wide text-primary">
+                      {project.label || 'Project'}
+                    </p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
       </div>
     </article>
   )
@@ -82,7 +123,7 @@ export default function Stories() {
       if (travel <= 0) return
       const p = Math.min(1, Math.max(0, -el.getBoundingClientRect().top / travel))
       progress.set(p)
-      setActive(Math.min(N - 1, Math.max(0, Math.round(p * (N - 1)))))
+      setActive(Math.min(STORY_STEP_COUNT - 1, Math.max(0, Math.floor(p * STORY_STEP_COUNT))))
     }
 
     update()
@@ -94,20 +135,11 @@ export default function Stories() {
     }
   }, [progress])
 
-  // Shift the card strip vertically — one viewport per chapter — tracking scroll.
-  const y = useTransform(progress, (p) => `${-p * (N - 1) * 100}vh`)
-
   // Background drifts a little as the story progresses.
   const bgPos = useTransform(progress, (p) => `50% ${p * 100}%`)
-
-  // Click a rail dot → scroll the window to that chapter's slice.
-  const goTo = (i) => {
-    const wrap = wrapRef.current
-    if (!wrap) return
-    const top = wrap.getBoundingClientRect().top + window.scrollY
-    const travel = wrap.offsetHeight - window.innerHeight
-    window.scrollTo({ top: top + (i / (N - 1)) * travel, behavior: 'smooth' })
-  }
+  const activeStep = storySteps[active]
+  const activeChapter = activeStep.chapter
+  const activeChapterIndex = orderedChapters.findIndex((chapter) => chapter.n === activeChapter.n)
 
   return (
     <section id="stories">
@@ -115,7 +147,7 @@ export default function Stories() {
       <div
         ref={wrapRef}
         className="relative hidden md:block"
-        style={{ height: `${N * 100}vh` }}
+        style={{ height: `${STORY_STEP_COUNT * 100}vh` }}
       >
         <div className="sticky top-0 h-screen overflow-hidden">
           {/* drifting background */}
@@ -131,70 +163,52 @@ export default function Stories() {
           />
 
           <div className="container-content grid h-full grid-cols-12 items-center gap-10">
-            {/* Left: persistent frame + live progress */}
+            {/* Left: the current company changes with scroll position. */}
             <div className="col-span-5 flex h-screen flex-col justify-center">
-              <SectionHeading label="An interactive archive">
-                <span className="text-primary">Experience</span> behind the code
-              </SectionHeading>
-              <p className="mt-5 max-w-md text-lg text-muted-foreground">
-                Scroll through the career as chapters — from AI-powered products to high-scale
-                SaaS and the media foundations underneath it all.
-              </p>
-
-              <div className="mt-10 flex items-baseline gap-3">
-                <span className="font-display text-7xl font-extrabold leading-none text-primary">
-                  {String(active + 1).padStart(2, '0')}
-                </span>
-                <span className="font-display text-2xl font-bold text-muted-foreground">
-                  / {String(N).padStart(2, '0')}
-                </span>
-              </div>
-              <p className="mt-3 text-sm font-bold uppercase tracking-wider text-muted-foreground">
-                {orderedChapters[active].kicker} · {orderedChapters[active].company}
-              </p>
-
-              {/* progress rail */}
-              <div className="mt-8 flex items-center gap-3">
-                <div className="relative h-0.5 flex-1 rounded-full bg-border">
-                  <motion.div
-                    className="absolute inset-y-0 left-0 rounded-full bg-primary"
-                    animate={{ width: `${((active + 1) / N) * 100}%` }}
-                    transition={{ type: 'spring', stiffness: 200, damping: 30 }}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-between">
-                    {orderedChapters.map((ch, i) => (
-                      <button
-                        key={ch.n}
-                        onClick={() => goTo(i)}
-                        aria-label={`Go to chapter ${ch.n}`}
-                        className={`h-3 w-3 rounded-full border-2 transition-colors ${
-                          i <= active ? 'border-primary bg-primary' : 'border-border bg-background-alt'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <motion.div
+                key={activeChapter.n}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.35, ease: 'easeOut' }}
+              >
+                <p className="text-sm font-bold uppercase tracking-[0.16em] text-primary">
+                  Experience / {String(activeChapterIndex + 1).padStart(2, '0')}
+                </p>
+                <h2 className="mt-4 max-w-md text-5xl font-extrabold leading-[0.95] md:text-6xl">
+                  {activeChapter.company}
+                </h2>
+                <p className="mt-5 max-w-md text-lg font-semibold text-foreground">
+                  {activeChapter.role}
+                </p>
+                <p className="mt-1 text-sm font-bold uppercase tracking-wider text-primary">
+                  {activeChapter.period}
+                </p>
+                <p className="mt-8 text-sm font-bold uppercase tracking-wider text-muted-foreground">
+                  {activeChapter.kicker}
+                </p>
+              </motion.div>
             </div>
 
-            {/* Right: shifting card strip */}
+            {/* Right: one persistent card. Multi-image chapters change only the photo. */}
             <div className="relative col-span-7 h-screen overflow-hidden">
-              <motion.div style={{ y }}>
-                {orderedChapters.map((ch, i) => (
-                  <div key={ch.n} className="flex h-screen items-center justify-center">
-                    <motion.div
-                      className="w-full"
-                      animate={{
-                        scale: active === i ? 1 : 0.94,
-                        opacity: active === i ? 1 : 0.45,
-                      }}
-                      transition={{ type: 'spring', stiffness: 260, damping: 26 }}
-                    >
-                      <ChapterCard ch={ch} active={active === i} />
-                    </motion.div>
-                  </div>
-                ))}
-              </motion.div>
+              <div className="flex h-full items-center justify-center">
+                <AnimatePresence initial={false} mode="wait">
+                  <motion.div
+                    key={activeChapter.n}
+                    className="w-full"
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
+                    transition={{ type: 'spring', stiffness: 260, damping: 26 }}
+                  >
+                    <ChapterCard
+                      ch={activeChapter}
+                      active
+                      photoIndex={activeStep.photoIndex}
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
           </div>
         </div>

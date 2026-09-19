@@ -166,7 +166,6 @@
   right: clamp(1.5rem, 4vw, 4.5rem);
   bottom: 1.25rem;
   left: clamp(1.5rem, 4vw, 4.5rem);
-  border-top: 1px solid rgba(30, 22, 17, 0.28);
   border-bottom: 1px solid rgba(30, 22, 17, 0.2);
 }
 
@@ -179,49 +178,6 @@
   opacity: 0.65;
   background: linear-gradient(90deg, transparent, rgba(30, 22, 17, 0.07));
   pointer-events: none;
-}
-
-.hero-corner {
-  position: absolute;
-  z-index: 3;
-  width: 1.6rem;
-  height: 1.6rem;
-  border-color: var(--foreground);
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.hero-corner-top {
-  top: 1.25rem;
-  left: clamp(1.5rem, 4vw, 4.5rem);
-  border-top: 2px solid;
-  border-left: 2px solid;
-}
-
-.hero-corner-bottom {
-  right: clamp(1.5rem, 4vw, 4.5rem);
-  bottom: 1.25rem;
-  border-right: 2px solid;
-  border-bottom: 2px solid;
-}
-
-.hero-identity {
-  position: absolute;
-  z-index: 4;
-  top: clamp(4.6rem, 12vh, 7.6rem);
-  left: clamp(1.5rem, 7vw, 8rem);
-  display: grid;
-  gap: 0.28rem;
-  color: var(--foreground);
-  font-size: clamp(0.65rem, 0.8vw, 0.78rem);
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  line-height: 1.1;
-}
-
-.hero-identity-index {
-  margin-bottom: 0.45rem;
-  color: var(--primary);
 }
 
 .hero-card-nav,
@@ -355,16 +311,27 @@
   height: 100%;
   max-width: 100%;
   object-fit: contain;
-  filter: drop-shadow(-1.1rem 1.5rem 1.5rem rgba(30, 22, 17, 0.14));
+  filter: none;
   transform: translateZ(32px) rotate(-1.5deg);
   mask-image: none;
+}
+
+.hero-portrait-monochrome {
+  transition: opacity 180ms ease;
 }
 
 .hero-portrait-holi {
   z-index: 2;
   opacity: 0;
   clip-path: circle(0% at 62% 44%);
-  mask-image: none;
+  -webkit-mask-image: url('/images/shibly-hero-monochrome-cutout.png');
+  -webkit-mask-position: center bottom;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-image: url('/images/shibly-hero-monochrome-cutout.png');
+  mask-position: center bottom;
+  mask-repeat: no-repeat;
+  mask-size: contain;
   transform: translateZ(32px) rotate(-1.5deg) scale(0.96);
   transition: clip-path 700ms cubic-bezier(0.22, 0.9, 0.23, 1), opacity 160ms ease, transform 700ms cubic-bezier(0.22, 0.9, 0.23, 1);
 }
@@ -395,6 +362,10 @@
   transform: translateZ(32px) rotate(-1.5deg) scale(1);
 }
 
+.hero-portrait-wrap.is-holi .hero-portrait-monochrome {
+  opacity: 0;
+}
+
 .hero-portrait-wrap.is-holi .hero-powder-bloom {
   opacity: 0.72;
   transform: scale(2.9);
@@ -403,57 +374,6 @@
 .hero-portrait-wrap:focus-visible {
   outline: 3px solid var(--primary);
   outline-offset: 0.45rem;
-}
-
-.hero-portrait-hint {
-  position: absolute;
-  z-index: 5;
-  right: 7%;
-  bottom: 17%;
-  padding: 0.5rem 0.65rem;
-  border: 1px solid rgba(30, 22, 17, 0.36);
-  background: rgba(244, 239, 234, 0.82);
-  color: var(--foreground);
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(0.45rem);
-  transition: opacity 200ms ease, transform 200ms ease;
-}
-
-.hero-portrait-wrap:hover .hero-portrait-hint,
-.hero-portrait-wrap:focus-visible .hero-portrait-hint {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hero-caption {
-  position: absolute;
-  z-index: 4;
-  right: clamp(1.5rem, 7vw, 8rem);
-  bottom: clamp(2.4rem, 5vh, 4.5rem);
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  width: min(30rem, 37vw);
-  color: var(--muted-foreground);
-  font-size: clamp(0.62rem, 0.72vw, 0.72rem);
-  font-weight: 800;
-  letter-spacing: 0.09em;
-  line-height: 1.3;
-  text-transform: uppercase;
-}
-
-.hero-caption span:last-child {
-  white-space: nowrap;
-}
-
-.hero-caption-rule {
-  height: 1px;
-  flex: 1;
-  background: rgba(30, 22, 17, 0.35);
 }
 
 .hero-card-bottom {
@@ -572,15 +492,6 @@
     left: 1rem;
   }
 
-  .hero-corner-top { top: 0.9rem; left: 1rem; }
-  .hero-corner-bottom { right: 1rem; bottom: 0.9rem; }
-
-  .hero-identity {
-    top: 4rem;
-    left: 1.6rem;
-    font-size: 0.6rem;
-  }
-
   .hero-card-nav {
     grid-template-columns: 1fr auto;
   }
@@ -617,19 +528,6 @@
 
   .hero-portrait {
     max-width: 100%;
-    filter: drop-shadow(-0.7rem 1rem 1rem rgba(30, 22, 17, 0.12));
-  }
-
-  .hero-caption {
-    right: 1.6rem;
-    bottom: 2.15rem;
-    width: min(16rem, 52vw);
-    font-size: 0.55rem;
-  }
-
-  .hero-caption span:first-child,
-  .hero-portrait-hint {
-    display: none;
   }
 
   .hero-card-bottom {

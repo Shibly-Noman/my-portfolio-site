@@ -46,14 +46,6 @@ export default function Hero() {
           className="hero-reference-card"
         >
           <div className="hero-scan-grid" aria-hidden="true" />
-          <div className="hero-corner hero-corner-top" aria-hidden="true" />
-          <div className="hero-corner hero-corner-bottom" aria-hidden="true" />
-
-          <div className="hero-identity" aria-label="Professional focus">
-            <span className="hero-identity-index">01 / IDENTITY</span>
-            <span>FULL-STACK ENGINEER</span>
-            <span>AI · SAAS · MEDIA</span>
-          </div>
 
           <p id="hero-title" className="sr-only">Shibly Mohammad Noman, full-stack software engineer</p>
 
@@ -83,14 +75,8 @@ export default function Hero() {
               className="hero-portrait hero-portrait-holi"
             />
             <span className="hero-powder-bloom" aria-hidden="true" />
-            <span className="hero-portrait-hint" aria-hidden="true">Colour / on</span>
           </button>
 
-          <div className="hero-caption" aria-hidden="true">
-            <span>Builder of resilient digital systems</span>
-            <span className="hero-caption-rule" />
-            <span>SELECTED WORK / 2026</span>
-          </div>
         </motion.div>
       </div>
     </section>

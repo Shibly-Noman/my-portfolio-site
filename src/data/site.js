@@ -104,6 +104,7 @@ export const work = [
 export const chapters = [
   {
     n: 1,
+    photo: '/images/gakk-media-limited.jpg',
     kicker: 'Media & Gaming',
     company: 'Gakk Media Limited',
     role: 'Software Engineer',
@@ -117,6 +118,18 @@ export const chapters = [
       'Optimized media delivery and integrated Google Analytics with custom event tracking.',
       'Integrated Direct Carrier Billing for local and international subscriptions.',
     ],
+    projects: [
+      {
+        name: 'Shadhin Music',
+        label: 'Primary project',
+        logo: '/images/projects/shadhin-music-logo.png',
+      },
+      {
+        name: 'Toffee',
+        label: 'Project',
+        logo: '/images/projects/toffee-logo.png',
+      },
+    ],
     metrics: [
       { value: 'Reduced', label: 'Load time' },
       { value: 'SSR', label: 'SEO gain' },
@@ -125,6 +138,23 @@ export const chapters = [
   },
   {
     n: 2,
+    photos: [
+      {
+        src: '/images/vivasoft-team.jpg',
+        alt: 'Vivasoft gaming moment in the office',
+        position: 'center top',
+      },
+      {
+        src: '/images/vivasoft-collaboration.png',
+        alt: 'Vivasoft team collaborating around a workstation',
+        position: 'center top',
+      },
+      {
+        src: '/images/vivasoft-presentation.png',
+        alt: 'Vivasoft team presenting in a meeting room',
+        position: 'center top',
+      },
+    ],
     kicker: 'High-Scale SaaS',
     company: 'Vivasoft Limited',
     role: 'Software Engineer L-II',
@@ -146,6 +176,7 @@ export const chapters = [
   },
   {
     n: 3,
+    photo: null,
     kicker: 'AI & LLM',
     company: 'Ontik Technology',
     role: 'Software Engineer, Consultant',

@@ -142,7 +142,7 @@ export const chapters = [
       {
         src: '/images/vivasoft-team.jpg',
         alt: 'Vivasoft gaming moment in the office',
-        position: 'center top',
+        position: 'center center',
       },
       {
         src: '/images/vivasoft-collaboration.png',
@@ -176,7 +176,23 @@ export const chapters = [
   },
   {
     n: 3,
-    photo: null,
+    photos: [
+      {
+        src: '/images/ontik-balcony.png',
+        alt: 'Shibly at the Ontik office balcony',
+        position: 'center center',
+      },
+      {
+        src: '/images/ontik-workspace.png',
+        alt: 'Laptop workspace at Ontik Technology',
+        position: 'center center',
+      },
+      {
+        src: '/images/ontik-anniversary.png',
+        alt: 'Ontik office anniversary decorations',
+        position: 'center center',
+      },
+    ],
     kicker: 'AI & LLM',
     company: 'Ontik Technology',
     role: 'Software Engineer, Consultant',

@@ -47,7 +47,7 @@ export default function Hero() {
         >
           <div className="hero-scan-grid" aria-hidden="true" />
 
-          <p id="hero-title" className="sr-only">Shibly Mohammad Noman, full-stack software engineer</p>
+          <p id="hero-title" className="sr-only">Shibly Mohammad Noman, full stack software engineer</p>
 
           <div className="hero-wordmark" aria-hidden="true">
             <span className="hero-wordmark-outline">SHIBLY</span>

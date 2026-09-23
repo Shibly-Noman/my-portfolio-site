@@ -566,6 +566,49 @@
   .hero-chapter-line span:nth-child(2) { display: none; }
 }
 
+@media (min-width: 600px) and (max-width: 767px) {
+  .hero-reference-card {
+    min-height: min(52rem, calc(100svh - 1.2rem));
+  }
+
+  .hero-wordmark {
+    top: 8.75rem;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    flex-direction: row;
+    align-items: baseline;
+    font-size: clamp(3.3rem, 10.5vw, 4.65rem);
+  }
+
+  .hero-wordmark-solid {
+    margin-top: 0;
+    margin-left: 0.075em;
+  }
+
+  .hero-portrait-wrap {
+    right: -0.5rem;
+    bottom: 0;
+    width: min(76vw, 30rem);
+    height: clamp(25rem, 68vw, 32rem);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-wordmark {
+    top: clamp(9.5rem, 18vh, 11rem);
+    left: clamp(1rem, 4.3vw, 3rem);
+    width: calc(100% - clamp(2rem, 8.6vw, 6rem));
+    font-size: clamp(4rem, 10.5vw, 6.25rem);
+  }
+
+  .hero-portrait-wrap {
+    right: 0;
+    bottom: 1.5rem;
+    width: min(50vw, 31rem);
+    height: clamp(26rem, 48vh, 32rem);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-reference-card { transition: none; transform: none; }
 }

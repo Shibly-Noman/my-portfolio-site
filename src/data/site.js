@@ -1,14 +1,14 @@
 export const profile = {
   name: 'Shibly Mohammad Noman',
   wordmark: { first: 'Shibly', second: 'Noman' },
-  badge: 'Full-Stack Software Engineer',
+  badge: 'Full Stack Software Engineer',
   tagline: 'Software Engineer',
   rotating: ['complex systems', 'scalable architecture', 'clean code'],
   heroLead: 'I build systems that are',
   heroSub:
-    'Full-stack engineer with 5+ years of experience building complex systems from infrastructure up. Framework-agnostic mindset with a track record of improving application performance and accessibility across the entire stack.',
+    'Full stack engineer with 5+ years of experience building complex systems from infrastructure up. A framework agnostic approach with a track record of improving application performance and accessibility across the entire stack.',
   summary:
-    'Full-stack engineer with 5+ years of experience building complex systems from infrastructure up. Maintaining a framework-agnostic mindset, I have consistently improved application performance and enhanced user accessibility. My focus remains on engineering excellence and solving technical challenges across the entire stack.',
+    'Full stack engineer with 5+ years of experience building complex systems from infrastructure up. With a framework agnostic approach, I have consistently improved application performance and enhanced user accessibility. My focus remains on engineering excellence and solving technical challenges across the entire stack.',
   email: 'shibly.work@gmail.com',
   phone: '+880 1307609911',
   phoneHref: 'tel:+8801307609911',
@@ -34,7 +34,7 @@ export const lifecycle = [
   {
     step: '02',
     title: 'Build & Integrate',
-    desc: 'Develop APIs, UIs, and backend services — integrating databases, queues, and third-party services into cohesive platforms.',
+    desc: 'Develop APIs, UIs, and backend services — integrating databases, queues, and third party services into cohesive platforms.',
   },
   {
     step: '03',
@@ -44,7 +44,7 @@ export const lifecycle = [
   {
     step: '04',
     title: 'Deploy & Monitor',
-    desc: 'Ship with CI/CD pipelines, container orchestration, and observability — keeping systems healthy post-launch.',
+    desc: 'Ship with CI/CD pipelines, container orchestration, and observability — keeping systems healthy after launch.',
   },
 ]
 
@@ -85,7 +85,7 @@ export const exploreLinks = [
 export const work = [
   {
     type: 'Media',
-    title: 'Shadhin Music — high-performance streaming platform',
+    title: 'Shadhin Music — high performance streaming platform',
     excerpt:
       'Built a streaming platform with recommendation engine, user event tracking, and SEO optimization for an extensive library of songs, videos, and podcasts.',
     source: 'Gakk Media Limited',
@@ -93,17 +93,17 @@ export const work = [
   },
   {
     type: 'AI / ML',
-    title: 'Eudora — AI-powered learning platform',
+    title: 'Eudora — AI powered learning platform',
     excerpt:
-      'Developed an EdTech platform that tracks student mastery in real time, detects learning gaps, and delivers personalized, data-backed intervention recommendations.',
+      'Developed an EdTech platform that tracks student mastery in real time, detects learning gaps, and delivers personalized recommendations informed by data.',
     source: 'Personal Project',
     link: '#',
   },
   {
     type: 'SaaS',
-    title: 'Ask My Data — NL-to-SQL application',
+    title: 'Ask My Data — NL to SQL application',
     excerpt:
-      'Created a natural-language-to-SQL app using LangGraph that generates, validates, and executes database queries with multi-layer security safeguards and approval gates.',
+      'Created a natural language to SQL app using LangGraph that generates, validates, and executes database queries with layered security safeguards and approval gates.',
     source: 'Personal Project',
     link: '#',
   },
@@ -111,15 +111,15 @@ export const work = [
     type: 'Web App',
     title: 'Tracking Pixels — cookieless attribution system',
     excerpt:
-      'Engineered a cookieless event tracking and attribution system built for GDPR and CCPA compliance using anonymous session modeling and first-party data collection.',
+      'Engineered a cookieless event tracking and attribution system built for GDPR and CCPA compliance using anonymous session modeling and first party data collection.',
     source: 'Vivasoft Limited',
     link: '#',
   },
   {
     type: 'SaaS',
-    title: 'High-scale AdTech SaaS platform',
+    title: 'High scale AdTech SaaS platform',
     excerpt:
-      'Developed and maintained high-scale AdTech SaaS with complex API architectures optimized for performance and reliability.',
+      'Developed and maintained high scale AdTech SaaS with complex API architectures optimized for performance and reliability.',
     source: 'Vivasoft Limited',
     link: '#',
   },
@@ -127,7 +127,7 @@ export const work = [
     type: 'SaaS',
     title: 'Azerion — AdTech and AI platforms',
     excerpt:
-      'Supported a long-term AdTech engagement spanning platform modernization, real-time bidding, and a unified AI hub for a global digital advertising ecosystem.',
+      'Supported a longstanding AdTech engagement spanning platform modernization, live bidding, and a unified AI hub for a global digital advertising ecosystem.',
     source: 'Vivasoft Limited',
     link: 'https://vivasoftltd.com/case-study/azerion/',
     image: '/images/azerion-logo.png',
@@ -135,7 +135,7 @@ export const work = [
   },
   {
     type: 'Web App',
-    title: 'Custom Vite-based framework',
+    title: 'Custom framework built with Vite',
     excerpt:
       'Built a custom framework on top of Vite, improving build performance and scalability across distributed projects.',
     source: 'Vivasoft Limited',
@@ -156,7 +156,7 @@ export const chapters = [
     points: [
       'Developed and delivered diverse media and gaming applications.',
       'Migrated legacy architectures and implemented SSR to improve SEO and discoverability.',
-      'Reduced page load time, increased traffic, and built a global media player with anti-piracy measures.',
+      'Reduced page load time, increased traffic, and built a global media player with piracy prevention measures.',
       'Optimized media delivery and integrated Google Analytics with custom event tracking.',
       'Integrated Direct Carrier Billing for local and international subscriptions.',
     ],
@@ -175,7 +175,7 @@ export const chapters = [
     metrics: [
       { value: 'Reduced', label: 'Load time' },
       { value: 'SSR', label: 'SEO gain' },
-      { value: 'Global', label: 'Anti-piracy' },
+      { value: 'Global', label: 'Piracy prevention' },
     ],
   },
   {
@@ -197,15 +197,15 @@ export const chapters = [
         position: 'center top',
       },
     ],
-    kicker: 'High-Scale SaaS',
+    kicker: 'Large Scale SaaS',
     company: 'Vivasoft Limited',
-    role: 'Software Engineer L-II',
+    role: 'Software Engineer Level II',
     period: 'Nov 2022 – Dec 2025',
     title: 'Scaling AdTech and data infrastructure',
-    desc: 'Deepened expertise in high-scale systems — from AdTech SaaS to custom frameworks, focusing on performance, reliability, and code quality.',
+    desc: 'Deepened expertise in large scale systems — from AdTech SaaS to custom frameworks, focusing on performance, reliability, and code quality.',
     points: [
-      'Developed and maintained high-scale AdTech SaaS.',
-      'Worked with high-throughput data pipelines handling large datasets.',
+      'Developed and maintained large scale AdTech SaaS.',
+      'Worked with high volume data pipelines handling large datasets.',
       'Optimized complex API architectures for performance and reliability.',
       'Ensured code quality and technical consistency across distributed projects.',
       'Built a custom framework on Vite, improving build performance and scalability.',
@@ -246,12 +246,12 @@ export const chapters = [
     company: 'Ontik Technology',
     role: 'Software Engineer, Consultant',
     period: 'Mar 2026 – Jul 2026',
-    title: 'Engineering AI-powered products',
+    title: 'Engineering AI powered products',
     desc: 'Applied AI and LLM technologies to production SaaS products — advancing prototypes to funding stages with intelligent features.',
     points: [
       'Built NLQ feature for a finance SaaS MVP using LangChain and LangGraph, letting admins query legacy databases.',
       'Advanced the product from prototype to funding stage.',
-      'Developed RAG-based MVP for RTM domain.',
+      'Developed RAG based MVP for RTM domain.',
     ],
     metrics: [
       { value: 'NLQ', label: 'Feature' },
@@ -280,7 +280,7 @@ export const skillGroups = [
   },
   {
     title: 'AI & LLM',
-    items: ['LangChain', 'LangGraph', 'RAG', 'NL-to-SQL'],
+    items: ['LangChain', 'LangGraph', 'RAG', 'NL to SQL'],
   },
   {
     title: 'Infrastructure & DevOps',
@@ -293,7 +293,7 @@ export const education = []
 export const voicePrinciples = [
   {
     title: 'Clear',
-    desc: 'Jargon out, meaning in. If a reader has to re-read a sentence, it isn’t finished.',
+    desc: 'Jargon out, meaning in. If a reader has to read a sentence twice, it isn’t finished.',
   },
   {
     title: 'Compelling',
@@ -301,7 +301,7 @@ export const voicePrinciples = [
   },
   {
     title: 'Credible',
-    desc: 'Primary sources, fact-checks and human QA. Speed from AI, trust from judgment.',
+    desc: 'Primary sources, fact checks and human QA. Speed from AI, trust from judgment.',
   },
 ]
 
@@ -311,7 +311,7 @@ export const voiceExamples = [
     do: 'We help your team ship content that actually moves the numbers.',
   },
   {
-    dont: 'Our product is a best-in-class, industry-leading platform.',
+    dont: 'Our product is a best in class, industry leading platform.',
     do: 'Here’s the one problem it solves — and the proof it works.',
   },
 ]

@@ -220,7 +220,7 @@ export default function Stories() {
           <span className="text-primary">Experience</span> behind the code
         </SectionHeading>
         <p className="mt-5 text-lg text-muted-foreground">
-          The career as chapters — from AI-powered products to high-scale SaaS and the media foundations underneath it all.
+          The career as chapters — from AI powered products to high scale SaaS and the media foundations underneath it all.
         </p>
         <div className="mt-10 space-y-6">
           {orderedChapters.map((ch) => (

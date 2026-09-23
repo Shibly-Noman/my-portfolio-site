@@ -126,28 +126,37 @@ export default function Work() {
                 key={item.title}
                 href={item.link}
                 layout
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noreferrer' : undefined}
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.96 }}
                 transition={{ duration: 0.35 }}
                 whileHover={{ y: -6 }}
-                className="card group flex h-full flex-col p-7"
+                className={`card group flex h-full flex-col overflow-hidden ${item.image ? 'p-0' : 'p-7'}`}
               >
-                <div className="flex items-center justify-between">
-                  <span className={`rounded-full px-3 py-1 text-xs font-bold ${typeColor[item.type] || 'bg-muted'}`}>
-                    {item.type}
-                  </span>
-                  <span className="text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
-                    ↗
+                {item.image && (
+                  <div className="flex h-44 items-center justify-center bg-white p-6">
+                    <img src={item.image} alt={`${item.title} logo`} className="h-full w-full object-contain" />
+                  </div>
+                )}
+                <div className={item.image ? 'flex flex-1 flex-col p-7' : ''}>
+                  <div className="flex items-center justify-between">
+                    <span className={`rounded-full px-3 py-1 text-xs font-bold ${typeColor[item.type] || 'bg-muted'}`}>
+                      {item.type}
+                    </span>
+                    <span className="text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                      ↗
+                    </span>
+                  </div>
+                  <h4 className="mt-5 text-xl font-bold leading-snug">{item.title}</h4>
+                  <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted-foreground">
+                    {item.excerpt}
+                  </p>
+                  <span className="mt-6 text-sm font-semibold text-muted-foreground">
+                    {item.source}
                   </span>
                 </div>
-                <h4 className="mt-5 text-xl font-bold leading-snug">{item.title}</h4>
-                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted-foreground">
-                  {item.excerpt}
-                </p>
-                <span className="mt-6 text-sm font-semibold text-muted-foreground">
-                  {item.source}
-                </span>
               </motion.a>
             ))}
           </AnimatePresence>

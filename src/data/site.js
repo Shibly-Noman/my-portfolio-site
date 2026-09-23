@@ -124,6 +124,16 @@ export const work = [
     link: '#',
   },
   {
+    type: 'SaaS',
+    title: 'Azerion — AdTech and AI platforms',
+    excerpt:
+      'Supported a long-term AdTech engagement spanning platform modernization, real-time bidding, and a unified AI hub for a global digital advertising ecosystem.',
+    source: 'Vivasoft Limited',
+    link: 'https://vivasoftltd.com/case-study/azerion/',
+    image: '/images/azerion-logo.png',
+    external: true,
+  },
+  {
     type: 'Web App',
     title: 'Custom Vite-based framework',
     excerpt:
@@ -199,6 +209,13 @@ export const chapters = [
       'Optimized complex API architectures for performance and reliability.',
       'Ensured code quality and technical consistency across distributed projects.',
       'Built a custom framework on Vite, improving build performance and scalability.',
+    ],
+    projects: [
+      {
+        name: 'Azerion',
+        label: 'AdTech & AI',
+        logo: '/images/azerion-logo.png',
+      },
     ],
     metrics: [
       { value: 'High', label: 'Throughput' },

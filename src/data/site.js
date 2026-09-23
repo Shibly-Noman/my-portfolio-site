@@ -245,13 +245,23 @@ export const chapters = [
     kicker: 'AI & LLM',
     company: 'Ontik Technology',
     role: 'Software Engineer, Consultant',
-    period: 'Mar 2026 to Jul 2026',
+    period: 'Mar 2026 to Jul 2026 (Contract)',
     title: 'Engineering AI powered products',
     desc: 'Applied AI and LLM technologies to production SaaS products, advancing prototypes to funding stages with intelligent features.',
     points: [
       'Built NLQ feature for a finance SaaS MVP using LangChain and LangGraph, letting admins query legacy databases.',
       'Advanced the product from prototype to funding stage.',
       'Developed RAG based MVP for RTM domain.',
+    ],
+    projectsLabel: 'Deployed To',
+    projects: [
+      {
+        name: 'Akij Venture',
+        label: 'Organization',
+        logo: '/images/projects/akij-venture-logo.png',
+        logoFit: 'cover',
+        href: 'https://www.akijventure.com/',
+      },
     ],
     metrics: [
       { value: 'NLQ', label: 'Feature' },

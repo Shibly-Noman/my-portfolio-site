@@ -65,36 +65,59 @@ function ChapterCard({ ch, active, photoIndex = 0 }) {
         <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{ch.desc}</p>
 
         {ch.projects?.length > 0 && (
-          <section className="mt-7 border-t border-border pt-5" aria-label="Projects">
+          <section
+            className="mt-7 border-t border-border pt-5"
+            aria-label={ch.projectsLabel || 'Projects'}
+          >
             <div className="flex items-baseline justify-between gap-4">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">
-                Projects
+                {ch.projectsLabel || 'Projects'}
               </p>
               <p className="text-xs font-semibold uppercase tracking-wide text-primary">
                 {ch.projects.length} {ch.projects.length === 1 ? 'project' : 'projects'}
               </p>
             </div>
             <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-3">
-              {ch.projects.map((project) => (
-                <article
-                  key={project.name}
-                  className="overflow-hidden rounded-xl border border-border bg-background"
-                >
-                  <div className="flex h-20 items-center justify-center bg-white p-3">
-                    <img
-                      src={project.logo}
-                      alt={`${project.name} logo`}
-                      className="h-full w-full object-contain"
-                    />
-                  </div>
-                  <div className="border-t border-border px-3 py-2.5">
-                    <p className="truncate text-sm font-bold">{project.name}</p>
-                    <p className="mt-0.5 text-[11px] font-medium uppercase tracking-wide text-primary">
-                      {project.label || 'Project'}
-                    </p>
-                  </div>
-                </article>
-              ))}
+              {ch.projects.map((project) => {
+                const content = (
+                  <>
+                    <div className="flex h-20 items-center justify-center bg-white p-3">
+                      <img
+                        src={project.logo}
+                        alt={`${project.name} logo`}
+                        className={`h-full w-full ${project.logoFit === 'cover' ? 'object-cover' : 'object-contain'}`}
+                      />
+                    </div>
+                    <div className="border-t border-border px-3 py-2.5">
+                      <p className="truncate text-sm font-bold">{project.name}</p>
+                      <p className="mt-0.5 text-[11px] font-medium uppercase tracking-wide text-primary">
+                        {project.label || 'Project'}
+                      </p>
+                    </div>
+                  </>
+                )
+
+                return (
+                  <article
+                    key={project.name}
+                    className="overflow-hidden rounded-xl border border-border bg-background"
+                  >
+                    {project.href ? (
+                      <a
+                        href={project.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Visit ${project.name} website`}
+                        className="block transition-opacity hover:opacity-80"
+                      >
+                        {content}
+                      </a>
+                    ) : (
+                      content
+                    )}
+                  </article>
+                )
+              })}
             </div>
           </section>
         )}

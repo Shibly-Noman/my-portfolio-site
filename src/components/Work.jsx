@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { education, work, workTypes } from '../data/site'
+import { education, exploreLinks, work, workTypes } from '../data/site'
 import Reveal from './ui/Reveal'
 
 const typeColor = {
@@ -21,7 +21,7 @@ export default function Work() {
   return (
     <section id="work" className="bg-background-alt py-24 md:py-32">
       <div className="container-content">
-        <div className="mt-20 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <div className="mt-20">
           <Reveal>
             <span className="pill mb-4 text-primary">
               <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -31,8 +31,75 @@ export default function Work() {
               Systems that earned <span className="text-primary">their place.</span>
             </h3>
           </Reveal>
+        </div>
 
-          <Reveal delay={0.1}>
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-12">
+          {exploreLinks.map((item, index) => (
+            <Reveal
+              key={item.eyebrow}
+              delay={index * 0.08}
+              className={index === 0 ? 'sm:col-span-2 lg:col-span-6' : 'lg:col-span-3'}
+            >
+              <motion.a
+                href={item.href}
+                target={item.external ? '_blank' : undefined}
+                rel={item.external ? 'noreferrer' : undefined}
+                whileHover={{ y: -6 }}
+                transition={{ type: 'spring', stiffness: 280, damping: 24 }}
+                className="group relative isolate flex min-h-80 overflow-hidden rounded-[2rem] border border-border bg-foreground p-6 text-white shadow-sm sm:p-7 lg:min-h-[25rem]"
+              >
+                <img
+                  src={item.image}
+                  alt=""
+                  aria-hidden="true"
+                  className={`absolute inset-0 -z-20 h-full w-full transition duration-700 ease-out group-hover:scale-105 ${
+                    item.fit === 'contain' ? 'object-contain object-bottom p-4' : 'object-cover'
+                  }`}
+                  style={{ objectPosition: item.position }}
+                />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-foreground via-foreground/65 to-foreground/10" />
+                <div className="absolute inset-0 -z-10 bg-primary/0 transition-colors duration-500 group-hover:bg-primary/15" />
+
+                <div className="flex w-full flex-col justify-between">
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="text-xs font-bold uppercase tracking-[0.16em] text-white/80">
+                      {item.eyebrow}
+                    </span>
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-white/10 text-lg transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1">
+                      ↗
+                    </span>
+                  </div>
+
+                  <div>
+                    <h4 className="max-w-sm text-3xl font-extrabold leading-[0.96] sm:text-4xl">
+                      {item.title}
+                    </h4>
+                    <p className="mt-3 max-w-md text-sm leading-relaxed text-white/78 sm:text-[15px]">
+                      {item.desc}
+                    </p>
+                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-white">
+                      {item.cta}
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </span>
+                  </div>
+                </div>
+              </motion.a>
+            </Reveal>
+          ))}
+        </div>
+
+        <div id="projects" className="mt-20 scroll-mt-24 border-t border-border pt-10">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <Reveal>
+              <p className="text-sm font-bold uppercase tracking-[0.16em] text-muted-foreground">
+                Project archive
+              </p>
+              <p className="mt-2 max-w-xl text-lg text-muted-foreground">
+                Filter through the systems, products, and experiments.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.1}>
             <div className="flex flex-wrap gap-2">
               {workTypes.map((t) => (
                 <button
@@ -48,10 +115,11 @@ export default function Work() {
                 </button>
               ))}
             </div>
-          </Reveal>
+            </Reveal>
+          </div>
         </div>
 
-        <motion.div layout className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div layout className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {filtered.map((item) => (
               <motion.a

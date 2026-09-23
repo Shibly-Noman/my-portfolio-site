@@ -50,6 +50,38 @@ export const lifecycle = [
 
 export const workTypes = ['All', 'Web App', 'SaaS', 'AI / ML', 'Media']
 
+export const exploreLinks = [
+  {
+    eyebrow: '01 / Selected work',
+    title: 'Systems, up close.',
+    desc: 'A focused archive of the platforms, infrastructure, and experiments behind the work.',
+    cta: 'Browse project archive',
+    href: '#projects',
+    image: '/images/vivasoft-collaboration.png',
+    position: 'center center',
+  },
+  {
+    eyebrow: '02 / Writing',
+    title: 'Notes from the build.',
+    desc: 'The context, decisions, and career chapters that shaped the work.',
+    cta: 'Read the stories',
+    href: '#stories',
+    image: '/images/gakk-media-limited.jpg',
+    position: 'center center',
+  },
+  {
+    eyebrow: '03 / Portfolio',
+    title: 'The wider portfolio.',
+    desc: 'Explore code, experiments, and the work still in motion.',
+    cta: 'Open GitHub profile',
+    href: profile.github,
+    image: '/images/shibly-hero-holi.png',
+    position: 'center bottom',
+    fit: 'contain',
+    external: true,
+  },
+]
+
 export const work = [
   {
     type: 'Media',

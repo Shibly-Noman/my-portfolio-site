@@ -7,7 +7,7 @@ export default function Styleguide() {
     <section id="styleguide" className="py-24 md:py-32">
       <div className="container-content">
         <SectionHeading label="Voice & style">
-          How I <span className="text-primary">write</span> — and what I won’t.
+          How I <span className="text-primary">write</span> and what I won’t.
         </SectionHeading>
         <Reveal delay={0.1}>
           <p className="mt-5 max-w-2xl text-lg text-muted-foreground">

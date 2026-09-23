@@ -8,7 +8,7 @@ import Reveal from './ui/Reveal'
 // story opens with AI/LLM work and resolves into the media foundations.
 const orderedChapters = [...chapters].reverse()
 // A chapter gets one scroll step for each image it contains. Those extra steps
-// only swap the photo in the fixed card — they never create duplicate cards.
+// only swap the photo in the fixed card. They never create duplicate cards.
 const storySteps = orderedChapters.flatMap((chapter) => {
   const photoCount = chapter.photos?.length ?? 1
   return Array.from({ length: photoCount }, (_, photoIndex) => ({ chapter, photoIndex }))
@@ -16,7 +16,7 @@ const storySteps = orderedChapters.flatMap((chapter) => {
 const STORY_STEP_COUNT = storySteps.length
 const fallbackPhoto = '/images/shibly-hero-monochrome-cutout.png'
 
-/** A single chapter card — shared by the pinned (desktop) and stacked (mobile) views. */
+/** One chapter card shared by the pinned desktop view and the stacked mobile view. */
 function ChapterCard({ ch, active, photoIndex = 0 }) {
   const photoSlides = ch.photos?.length
     ? ch.photos
@@ -220,7 +220,7 @@ export default function Stories() {
           <span className="text-primary">Experience</span> behind the code
         </SectionHeading>
         <p className="mt-5 text-lg text-muted-foreground">
-          The career as chapters — from AI powered products to high scale SaaS and the media foundations underneath it all.
+          The career as chapters, from AI powered products to high scale SaaS and the media foundations underneath it all.
         </p>
         <div className="mt-10 space-y-6">
           {orderedChapters.map((ch) => (

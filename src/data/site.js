@@ -34,7 +34,7 @@ export const lifecycle = [
   {
     step: '02',
     title: 'Build & Integrate',
-    desc: 'Develop APIs, UIs, and backend services — integrating databases, queues, and third party services into cohesive platforms.',
+    desc: 'Develop APIs, UIs, and backend services. Integrate databases, queues, and third party services into cohesive platforms.',
   },
   {
     step: '03',
@@ -44,7 +44,7 @@ export const lifecycle = [
   {
     step: '04',
     title: 'Deploy & Monitor',
-    desc: 'Ship with CI/CD pipelines, container orchestration, and observability — keeping systems healthy after launch.',
+    desc: 'Ship with CI/CD pipelines, container orchestration, and observability to keep systems healthy after launch.',
   },
 ]
 
@@ -85,7 +85,7 @@ export const exploreLinks = [
 export const work = [
   {
     type: 'Media',
-    title: 'Shadhin Music — high performance streaming platform',
+    title: 'Shadhin Music: high performance streaming platform',
     excerpt:
       'Built a streaming platform with recommendation engine, user event tracking, and SEO optimization for an extensive library of songs, videos, and podcasts.',
     source: 'Gakk Media Limited',
@@ -93,7 +93,7 @@ export const work = [
   },
   {
     type: 'AI / ML',
-    title: 'Eudora — AI powered learning platform',
+    title: 'Eudora: AI powered learning platform',
     excerpt:
       'Developed an EdTech platform that tracks student mastery in real time, detects learning gaps, and delivers personalized recommendations informed by data.',
     source: 'Personal Project',
@@ -101,7 +101,7 @@ export const work = [
   },
   {
     type: 'SaaS',
-    title: 'Ask My Data — NL to SQL application',
+    title: 'Ask My Data: NL to SQL application',
     excerpt:
       'Created a natural language to SQL app using LangGraph that generates, validates, and executes database queries with layered security safeguards and approval gates.',
     source: 'Personal Project',
@@ -109,7 +109,7 @@ export const work = [
   },
   {
     type: 'Web App',
-    title: 'Tracking Pixels — cookieless attribution system',
+    title: 'Tracking Pixels: cookieless attribution system',
     excerpt:
       'Engineered a cookieless event tracking and attribution system built for GDPR and CCPA compliance using anonymous session modeling and first party data collection.',
     source: 'Vivasoft Limited',
@@ -125,7 +125,7 @@ export const work = [
   },
   {
     type: 'SaaS',
-    title: 'Azerion — AdTech and AI platforms',
+    title: 'Azerion: AdTech and AI platforms',
     excerpt:
       'Supported a longstanding AdTech engagement spanning platform modernization, live bidding, and a unified AI hub for a global digital advertising ecosystem.',
     source: 'Vivasoft Limited',
@@ -150,9 +150,9 @@ export const chapters = [
     kicker: 'Media & Gaming',
     company: 'Gakk Media Limited',
     role: 'Software Engineer',
-    period: 'Jul 2021 – Oct 2022',
+    period: 'Jul 2021 to Oct 2022',
     title: 'Building media and gaming applications',
-    desc: 'Early career focus on media delivery and SSR migration — improving SEO, reducing load times, and integrating global subscription systems.',
+    desc: 'Early career focus on media delivery and SSR migration. This work improved SEO, reduced load times, and integrated global subscription systems.',
     points: [
       'Developed and delivered diverse media and gaming applications.',
       'Migrated legacy architectures and implemented SSR to improve SEO and discoverability.',
@@ -200,9 +200,9 @@ export const chapters = [
     kicker: 'Large Scale SaaS',
     company: 'Vivasoft Limited',
     role: 'Software Engineer Level II',
-    period: 'Nov 2022 – Dec 2025',
+    period: 'Nov 2022 to Dec 2025',
     title: 'Scaling AdTech and data infrastructure',
-    desc: 'Deepened expertise in large scale systems — from AdTech SaaS to custom frameworks, focusing on performance, reliability, and code quality.',
+    desc: 'Deepened expertise in large scale systems, from AdTech SaaS to custom frameworks, with a focus on performance, reliability, and code quality.',
     points: [
       'Developed and maintained large scale AdTech SaaS.',
       'Worked with high volume data pipelines handling large datasets.',
@@ -245,9 +245,9 @@ export const chapters = [
     kicker: 'AI & LLM',
     company: 'Ontik Technology',
     role: 'Software Engineer, Consultant',
-    period: 'Mar 2026 – Jul 2026',
+    period: 'Mar 2026 to Jul 2026',
     title: 'Engineering AI powered products',
-    desc: 'Applied AI and LLM technologies to production SaaS products — advancing prototypes to funding stages with intelligent features.',
+    desc: 'Applied AI and LLM technologies to production SaaS products, advancing prototypes to funding stages with intelligent features.',
     points: [
       'Built NLQ feature for a finance SaaS MVP using LangChain and LangGraph, letting admins query legacy databases.',
       'Advanced the product from prototype to funding stage.',
@@ -312,7 +312,7 @@ export const voiceExamples = [
   },
   {
     dont: 'Our product is a best in class, industry leading platform.',
-    do: 'Here’s the one problem it solves — and the proof it works.',
+    do: 'Here’s the one problem it solves and the proof it works.',
   },
 ]
 
